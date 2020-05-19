@@ -218,11 +218,9 @@ func ParseMessageWithDataDictionary(
 		}
 	}
 
-	bodyLength, err := msg.Header.GetInt(tagBodyLength)
+	_, err = msg.Header.GetInt(tagBodyLength)
 	if err != nil {
 		err = parseError{OrigError: err.Error()}
-	} else if length != bodyLength {
-		err = parseError{OrigError: fmt.Sprintf("Incorrect Message Length, expected %d, got %d", bodyLength, length)}
 	}
 
 	return
