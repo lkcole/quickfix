@@ -193,7 +193,7 @@ func ParseMessageWithDataDictionary(
 			trailerBytes = rawBytes
 			msg.Body.add(msg.fields[fieldIndex : fieldIndex+1])
 		}
-		if parsedFieldBytes.tag == tagCheckSum {
+		if parsedFieldBytes.tag == tagCheckSum || parsedFieldBytes.tag == tagXMLData {
 			break
 		}
 
