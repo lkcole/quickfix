@@ -336,7 +336,7 @@ func extractXMLDataField(parsedFieldBytes *TagValue, buffer []byte) (remBytes []
 		return
 	}
 
-	endIndex = bytes.IndexByte(buffer[endIndex:], '>')
+	endIndex = bytes.IndexByte(buffer[endIndex+1:], '>')
 	if endIndex == -1 {
 		err = parseError{OrigError: "extractField: No Trailing Delim in " + string(buffer)}
 		remBytes = buffer
