@@ -345,7 +345,7 @@ func extractXMLDataField(parsedFieldBytes *TagValue, buffer []byte) (remBytes []
 
 	tempEndIndex := bytes.IndexByte(buffer[endIndex:], '\001')
 	endIndex += tempEndIndex
-	tempEndIndex = bytes.IndexByte(buffer[endIndex:], '\001')
+	tempEndIndex = bytes.IndexByte(buffer[endIndex+1:], '\001')
 	endIndex += tempEndIndex
 
 	err = parsedFieldBytes.parse(buffer[:endIndex+1])
